@@ -6,7 +6,7 @@ Installation:
 
 1. Run this in MySQL to prepare the table:
 
-CREATE TABLE  `favster` (
+CREATE TABLE  `heartstr` (
 `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
 `ip` INT UNSIGNED NOT NULL ,
 `url` VARCHAR( 255 ) NOT NULL ,
@@ -15,7 +15,7 @@ INDEX (  `url` )
 
 2. Set up the HOST, USERNAME, PASSWORD below
 
-3. Put the JavaScript in your theme and update the URL if not /favster.php
+3. Put the JavaScript in your theme and update the URL if not /heartstr.php
 
 */
 
@@ -23,7 +23,7 @@ $MYSQL_HOST = 'localhost';
 $MYSQL_USER = 'utou';
 $MYSQL_PW   = 'utou';
 $MYSQL_DB   = 'utou';
-$MYSQL_TBL  = 'favster';
+$MYSQL_TBL  = 'heartstr';
 
 if (!isset($_GET['url'])) {
   die ('Error: no URL provided');
