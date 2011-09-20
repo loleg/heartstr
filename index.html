@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heartstr.php</title>
+  <script language="JavaScript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+</head>
+<body><center>
+  <h1><u>Heartstr</u> adds <b>heart</b> to any page</h1>
+  <em>a universal sign of appreciation .. and it looks like this (click me!):</em><br/>
+<!-- Unminified version for customization: -->
+  <script language="JavaScript">
+    /* Heartstr - a simple PHP/jQuery vote counter
+     *
+     * Author: @loleg http://oleg.utou.ch
+     *
+     * Creative Commons Attribution 3.0 Unported License
+	   * http://creativecommons.org/licenses/by/3.0/
+     *
+     */
+    document.write(
+      "<button class='heartstr' onclick='heartstr(this)'><span></span>&hearts;</button><style type='text/css'></style>"
+    );
+    function heartstr(o) {
+      o.className = 'heartstr-clicked';
+      $.get('/heartstr.php?url=' + document.location.href, function(d) {
+        $('span', o).html(d);
+      });
+    }
+  </script>
+  <style type="text/css">
+    .heartstr, .heartstr-clicked { 
+      font-size:80px;
+      color:#fcc;
+      border:0;
+      background:0; 
+    }
+    .heartstr-clicked { 
+      color:#fdc;
+    }
+    .heartstr {
+      cursor:pointer; 
+      cursor:hand;
+    }
+    .heartstr:hover { 
+      color:#faa;
+      -webkit-animation-name:glow;	-webkit-animation-duration: .5s; -webkit-animation-iteration-count: infinite; -webkit-animation-direction: alternate; -webkit-animation-timing-function: ease-in-out;
+      -moz-animation-name: glow; -moz-animation-duration: .5s; -moz-animation-iteration-count: infinite; -moz-animation-direction: alternate; -moz-animation-timing-function: ease-in-out; 
+      -ms-animation-name: glow; -ms-animation-duration: .5s; -ms-animation-iteration-count: infinite; -ms-animation-direction: alternate; -ms-animation-timing-function: ease-in-out; 
+    }
+    .heartstr span { display:none; }
+    .heartstr-clicked span { 
+      position:absolute;
+      color:#c66;
+      font:30% sans-serif;
+      margin:1.5em 0 0 -50%;
+      padding-left:50%;
+      width:2em;
+      text-align:center; 
+    }
+    @-webkit-keyframes glow {	0% { color:#fcc; } 100% { -webkit-transform:scale(1.1,1.1); color:#faa; } }
+    @-moz-keyframes glow    {	0% { color:#fcc; } 100% { -moz-transform:scale(1.1,1.1); color:#faa; } }
+    @-ms-keyframes glow     {	0% { color:#fcc; } 100% { -ms-transform:scale(1.1,1.1); color:#faa; } }
+  </style>
+<!-- End unminified version -->
+
+  <h2>How to use</h2>
+  <p>Place <a href="heartstr.php.txt">heartstr.php</a> at /, create a table and configure it to talk to your MySQL database as instructed in the file. Place the following into your template markup (uses jQuery, view source to customize):</p>
+  <textarea cols="80" rows="6">&lt;script language="JavaScript">document.write("&lt;button class='heartstr' onclick='heartstr(this)'>&lt;span>&lt;/span>&amp;hearts;&lt;/button>&lt;style type='text/css'>.heartstr,.heartstr-clicked{font-size:80px;color:#fcc;border:0;background:0;}.heartstr-clicked{color:#fdc;}.heartstr{cursor:hand;}.heartstr:hover{color:#faa;-webkit-animation-name:glow;-webkit-animation-duration:.5s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate;-webkit-animation-timing-function:ease-in-out;-moz-animation-name:glow;-moz-animation-duration:.5s;-moz-animation-iteration-count:infinite;-moz-animation-direction:alternate;-moz-animation-timing-function:ease-in-out;-ms-animation-name:glow;-ms-animation-duration:.5s;-ms-animation-iteration-count:infinite;-ms-animation-direction:alternate;-ms-animation-timing-function:ease-in-out;}.heartstr span{display:none;}.heartstr-clicked span{position:absolute;color:#c66;font:30% sans-serif;padding-left:50%;width:2em;text-align:center;margin:1.5em 0 0 -50%;}100%{-webkit-transform:scale(1.1,1.1);-moz-transform:scale(1.1,1.1);-ms-transform:scale(1.1,1.1);color:#faa;}&lt;/style>");function heartstr(o){o.className='heartstr-clicked';$.get('/heartstr.php?url='+document.location.href,function(d){$('span',o).html(d)})}&lt;/script></textarea>
+
+  <p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons Licence" style="border-width:0" hspace="20" align="left" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. Just fork me <a href="">on GitHub</a>.</p> 
+
+  <!-- Page decoration -->
+  <style type="text/css">
+p { width:50%; text-align:left; }
+h1 b { color:#c11; }
+h1, h2 { color:#951; }
+body {
+  font-family: georgia,verdana,sans-serif;
+
+/* Gradient by http://www.colorzilla.com/gradient-editor/ */
+background: #f0b7a1; /* Old browsers */
+background: -moz-linear-gradient(top, #f0b7a1 0%, #ffffff 40%, #f9f902 46%, #f0b7a1 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0b7a1), color-stop(40%,#ffffff), color-stop(46%,#f9f902), color-stop(100%,#f0b7a1)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f0b7a1 0%,#ffffff 40%,#f9f902 46%,#f0b7a1 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f0b7a1 0%,#ffffff 40%,#f9f902 46%,#f0b7a1 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, #f0b7a1 0%,#ffffff 40%,#f9f902 46%,#f0b7a1 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#f0b7a1',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, #f0b7a1 0%,#ffffff 40%,#f9f902 46%,#f0b7a1 100%); /* W3C */
+
+}
+</center></body>
+</html>

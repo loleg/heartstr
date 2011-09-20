@@ -1,0 +1,13 @@
+Heartstr adds heart to any page
+
+Requires: MySQL, PHP, jQuery
+
+1. Place heartstr.php at /, create a table and configure it to talk 
+to your MySQL database as instructed in the file. 
+
+2. Copy the contents of heartstr-min.html into your site template on
+location where you want the heart to be displayed, or grab the source 
+from index.html if you wish to customize.
+
+Creative Commons Attribution 3.0 Unported License
+http://creativecommons.org/licenses/by/3.0/
